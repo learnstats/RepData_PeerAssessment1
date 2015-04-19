@@ -110,7 +110,9 @@ median(new_stepsByDay)
 
 ```
 
-### Imputed values have modified the mean and median
+#### Imputed values have modified the median (making it same as mean) but mean is the same as before. The method of imputing does not impact the estimate of the total number of daily steps.
+
+## 
 
 ## Differences in activity patterns between weekdays and weekends
 

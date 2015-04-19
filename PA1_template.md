@@ -67,13 +67,6 @@ hist(steps_d$steps,
 
 ```r
 library(plyr)
-```
-
-```
-## Warning: package 'plyr' was built under R version 3.1.2
-```
-
-```r
 steps_avg_int <- ddply(no_na,~interval, summarise, mean=mean(steps))
 ```
 
@@ -82,18 +75,6 @@ steps_avg_int <- ddply(no_na,~interval, summarise, mean=mean(steps))
 
 ```r
 library(ggplot2)
-```
-
-```
-## Warning: package 'ggplot2' was built under R version 3.1.3
-```
-
-```
-## Find out what's changed in ggplot2 with
-## news(Version == "1.0.1", package = "ggplot2")
-```
-
-```r
 qplot(x=interval, y=mean, data = steps_avg_int,  geom = "line",
       xlab="5 Minute Interval",
       ylab="Number of Step Count",
@@ -137,38 +118,6 @@ length(which(is.na(data$steps)))
 ```r
 # Use mean and impute library
 library(Hmisc)
-```
-
-```
-## Warning: package 'Hmisc' was built under R version 3.1.3
-```
-
-```
-## Loading required package: grid
-## Loading required package: lattice
-## Loading required package: survival
-## Loading required package: splines
-## Loading required package: Formula
-```
-
-```
-## Warning: package 'Formula' was built under R version 3.1.3
-```
-
-```
-## 
-## Attaching package: 'Hmisc'
-## 
-## The following objects are masked from 'package:plyr':
-## 
-##     is.discrete, summarize
-## 
-## The following objects are masked from 'package:base':
-## 
-##     format.pval, round.POSIXt, trunc.POSIXt, units
-```
-
-```r
 new_data <- data
 new_data$steps <- impute(data$steps, fun=mean)
 ```
@@ -204,7 +153,9 @@ median(new_stepsByDay)
 ## [1] 10766.19
 ```
 
-### Imputed values have modified the mean and median
+#### Imputed values have modified the median (making it same as mean) but mean is the same as before. The method of imputing does not impact the estimate of the total number of daily steps.
+
+## 
 
 ## Differences in activity patterns between weekdays and weekends
 
